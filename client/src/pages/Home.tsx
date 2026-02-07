@@ -3,6 +3,7 @@
  * 首页：纵向叙事卷轴布局，如同展开一幅长卷画
  * 色彩：皇家金(#C8A45C) + 寺庙红(#8B2D2D) + 古卷象牙白(#FFF8E7)
  */
+import { useAuth } from "@/_core/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServiceGrid from "@/components/ServiceGrid";
@@ -17,6 +18,8 @@ import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const { user, loading, isAuthenticated } = useAuth();
+
   return (
     <div className="min-h-screen bg-[#FFF8E7]">
       <Navbar />

@@ -4,7 +4,7 @@
  */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Search, FolderOpen } from "lucide-react";
 
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/rLLGYBbaZSFXGCCN.png";
 
@@ -15,6 +15,7 @@ const navItems = [
   { label: "服务", href: "#services" },
   { label: "行程推荐", href: "#itinerary" },
   { label: "关于我们", href: "#about" },
+  { label: "文件管理", href: "/files", isPage: true },
 ];
 
 export default function Navbar() {
@@ -69,13 +70,14 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
+                onClick={(e) => { if (!(item as any).isPage) { e.preventDefault(); handleNavClick(item.href); } }}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   scrolled
                     ? "text-[#3D2B1F] hover:text-[#8B2D2D] hover:bg-[#C8A45C]/10"
                     : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
               >
+                {(item as any).isPage && <FolderOpen size={14} className="inline mr-1" />}
                 {item.label}
               </a>
             ))}
@@ -119,7 +121,7 @@ export default function Navbar() {
                 <motion.a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
+                  onClick={(e) => { if (!(item as any).isPage) { e.preventDefault(); handleNavClick(item.href); } }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
