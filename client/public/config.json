@@ -1,0 +1,215 @@
+{
+  "site": {
+    "title": "探索老挝 AR",
+    "titleEn": "Explore Laos AR",
+    "heroTitle": "沉浸式探索老挝古迹",
+    "heroSubtitle": "AR奇遇，指尖上的千年文明",
+    "heroDescription": "通过增强现实技术，让老挝的古老寺庙、壮丽山河与千年文化在您的指尖重获新生。开启一段穿越时空的文化之旅。",
+    "heroBackground": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/YvcelLrmwrObMSiX.jpg",
+    "logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/rLLGYBbaZSFXGCCN.png",
+    "colors": {
+      "primary": "#C8A45C",
+      "secondary": "#8B2D2D",
+      "ivory": "#FFF8E7",
+      "dark": "#3D2B1F",
+      "muted": "#6B5B4F"
+    }
+  },
+  "contact": {
+    "phone": "+86 134 678 43123",
+    "email": "a2918058304@gmail.com",
+    "address": "中国武汉中南民族大学 / 老挝万象"
+  },
+  "nav": [
+    { "label": "首页", "href": "#hero" },
+    { "label": "AR体验", "href": "#ar-experience" },
+    { "label": "热门目的地", "href": "#destinations" },
+    { "label": "服务", "href": "#services" },
+    { "label": "行程推荐", "href": "#itinerary" },
+    { "label": "关于我们", "href": "#about" }
+  ],
+  "services": [
+    { "icon": "Camera", "label": "AR景点", "desc": "增强现实导览", "color": "#C8A45C" },
+    { "icon": "Utensils", "label": "老挝美食", "desc": "地道风味推荐", "color": "#8B2D2D" },
+    { "icon": "Landmark", "label": "文化遗产", "desc": "世界遗产探索", "color": "#2E6B8A" },
+    { "icon": "Hotel", "label": "酒店住宿", "desc": "精选住宿体验", "color": "#C8A45C" },
+    { "icon": "Ticket", "label": "景区门票", "desc": "便捷购票服务", "color": "#8B2D2D" },
+    { "icon": "Music", "label": "特色演出", "desc": "传统文化表演", "color": "#2E6B8A" },
+    { "icon": "Compass", "label": "导游导览", "desc": "专业向导服务", "color": "#C8A45C" },
+    { "icon": "ShoppingBag", "label": "文创特产", "desc": "手工艺品精选", "color": "#8B2D2D" }
+  ],
+  "destinations": [
+    {
+      "name": "琅勃拉邦",
+      "nameEn": "Luang Prabang",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg",
+      "desc": "世界文化遗产古城，清晨布施、金碧辉煌的寺庙群与湄公河交汇的宁静之地",
+      "rating": 4.9,
+      "arCount": 18,
+      "tags": ["世界遗产", "寺庙", "布施"]
+    },
+    {
+      "name": "万象",
+      "nameEn": "Vientiane",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/grNBdGEdwJjSRGvH.jpg",
+      "desc": "老挝首都，塔銮金塔、凯旋门与法式殖民建筑交织的东南亚明珠",
+      "rating": 4.7,
+      "arCount": 15,
+      "tags": ["首都", "塔銮", "凯旋门"]
+    },
+    {
+      "name": "万荣",
+      "nameEn": "Vang Vieng",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg",
+      "desc": "喀斯特地貌与南松河的完美邂逅，热气球、蓝色泻湖与户外探险天堂",
+      "rating": 4.8,
+      "arCount": 12,
+      "tags": ["自然风光", "探险", "蓝色泻湖"]
+    },
+    {
+      "name": "占巴塞",
+      "nameEn": "Champasak",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/sxjOBJmxfQhCogms.jpg",
+      "desc": "瓦普寺遗址所在地，高棉文明的北方前哨，千年石刻诉说着古老的故事",
+      "rating": 4.6,
+      "arCount": 10,
+      "tags": ["世界遗产", "考古", "高棉文化"]
+    }
+  ],
+  "nearbyAttractions": [
+    {
+      "name": "光西瀑布",
+      "nameEn": "Kuang Si Falls",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg"
+    },
+    {
+      "name": "湄公河",
+      "nameEn": "Mekong River",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/grNBdGEdwJjSRGvH.jpg"
+    },
+    {
+      "name": "石缸平原",
+      "nameEn": "Plain of Jars",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg"
+    }
+  ],
+  "itineraries": [
+    {
+      "title": "经典文化之旅",
+      "days": 5,
+      "price": "¥3,999",
+      "highlights": ["琅勃拉邦古城", "清晨布施", "光西瀑布", "湄公河游船"],
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg"
+    },
+    {
+      "title": "探险自然之旅",
+      "days": 7,
+      "price": "¥5,999",
+      "highlights": ["万荣热气球", "蓝色泻湖", "溶洞探险", "南松河漂流"],
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg"
+    },
+    {
+      "title": "世界遗产之旅",
+      "days": 10,
+      "price": "¥8,999",
+      "highlights": ["琅勃拉邦", "瓦普寺", "石缸平原", "四千岛"],
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/sxjOBJmxfQhCogms.jpg"
+    }
+  ],
+  "guides": [
+    {
+      "title": "老挝签证攻略：2026最新政策",
+      "category": "攻略",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/grNBdGEdwJjSRGvH.jpg",
+      "date": "2026-01-15"
+    },
+    {
+      "title": "琅勃拉邦三日深度游路线",
+      "category": "攻略",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg",
+      "date": "2026-01-10"
+    },
+    {
+      "title": "中老铁路开通：全新旅行方式",
+      "category": "资讯",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg",
+      "date": "2026-01-08"
+    },
+    {
+      "title": "老挝传统节日：泼水节全攻略",
+      "category": "资讯",
+      "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/sxjOBJmxfQhCogms.jpg",
+      "date": "2026-01-05"
+    }
+  ],
+  "about": {
+    "vision": "「探索老挝AR」致力于将前沿的增强现实技术与老挝深厚的历史文化底蕴相结合，打造东南亚首个AR智慧文旅平台。我们相信，科技不仅能让旅行更便捷，更能让文化遗产以全新的方式触达每一位旅行者。",
+    "mission": "随着中老铁路的开通和东盟数字经济的蓬勃发展，老挝正迎来文旅产业的黄金时代。我们的使命是成为连接中国游客与老挝文化的数字桥梁，让每一次旅行都成为一次深度的文化对话。",
+    "stats": [
+      { "num": "50+", "label": "AR景点覆盖" },
+      { "num": "100K+", "label": "预期用户" },
+      { "num": "3", "label": "世界遗产" }
+    ],
+    "partners": ["老挝旅游部", "UNESCO亚太区", "中老铁路文旅", "东盟数字经济", "华为云AR", "腾讯文旅"],
+    "backgroundImage": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/qhrOTqcTdxKKusPW.jpg"
+  },
+  "ar": {
+    "mindFile": "./assets/targets.mind",
+    "models": [
+      {
+        "id": "tower",
+        "name": "塔銮金塔",
+        "targetIndex": 0,
+        "path": "./assets/models/tower.glb",
+        "scale": "0.5 0.5 0.5",
+        "position": "0 0 0",
+        "rotation": "0 0 0"
+      }
+    ]
+  },
+  "aiAgent": {
+    "enabled": true,
+    "welcomeMessage": "萨拜迪！我是您的老挝 AI 导游，关于塔銮或凯旋门有什么想问的吗？",
+    "avatar": "./assets/images/ai-avatar.png",
+    "name": "老挝小助手",
+    "quickReplies": [
+      "琅勃拉邦有什么好玩的？",
+      "老挝签证怎么办？",
+      "推荐一条5天行程",
+      "AR功能怎么用？"
+    ],
+    "fallbackResponses": [
+      "这是一个很好的问题！关于老挝旅行，我建议您先从琅勃拉邦开始，那里有世界遗产级别的古城和壮丽的寺庙群。",
+      "萨拜迪！老挝是一个充满魅力的国家。您可以体验清晨布施、探索光西瀑布、或者乘坐湄公河游船。",
+      "关于AR导览功能，您只需点击首页的「体验AR导览」按钮，对准识别图即可看到3D模型在现实中呈现。",
+      "老挝的美食非常值得尝试！推荐您试试老挝烤鱼、糯米饭配木瓜沙拉，还有老挝啤酒。",
+      "中老铁路已经开通，从昆明到万象只需要约10小时，非常方便！沿途风景也很美。"
+    ]
+  },
+  "promo": {
+    "title": "新春特惠",
+    "subtitle": "AR文旅体验套餐限时优惠",
+    "cta": "立即了解",
+    "backgroundGradient": "from-[#C8A45C] via-[#D4B06A] to-[#C8A45C]"
+  },
+  "featureBanners": {
+    "guide": {
+      "title": "AR导游导览",
+      "subtitle": "智能语音讲解"
+    },
+    "calendar": {
+      "title": "活动日历",
+      "subtitle": "精彩活动不错过"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 探索老挝AR. All rights reserved.",
+    "icp": "",
+    "links": [
+      { "label": "关于我们", "href": "#about" },
+      { "label": "联系方式", "href": "#about" },
+      { "label": "隐私政策", "href": "#" },
+      { "label": "使用条款", "href": "#" }
+    ]
+  }
+}
