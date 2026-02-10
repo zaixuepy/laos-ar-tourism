@@ -1,22 +1,20 @@
 /*
  * Design: 「皇家金殿」东南亚宫廷美学
  * Hero Section：全屏沉浸式Banner，金色粒子效果，电影级构图
- * 配置驱动：从 config.json 读取文字和背景
  */
 import { motion } from "framer-motion";
 import { ChevronDown, Sparkles } from "lucide-react";
-import { useConfig } from "@/contexts/ConfigContext";
+
+const HERO_BG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/YvcelLrmwrObMSiX.jpg";
 
 export default function HeroSection() {
-  const config = useConfig();
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={config.site.heroBackground}
-          alt="Hero Background"
+          src={HERO_BG}
+          alt="老挝琅勃拉邦黄昏全景"
           className="w-full h-full object-cover"
         />
         {/* Gradient Overlays */}
@@ -65,7 +63,8 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.8 }}
             className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold text-white mb-4 leading-tight"
           >
-            {config.site.heroTitle}
+            探索
+            <span className="text-gradient-gold"> 老挝</span>
           </motion.h1>
 
           <motion.p
@@ -74,7 +73,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="font-display text-xl sm:text-2xl lg:text-3xl text-[#E8D5A0] font-light mb-2"
           >
-            {config.site.heroSubtitle}
+            AR奇遇，指尖上的千年文明
           </motion.p>
 
           <motion.p
@@ -83,7 +82,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-white/60 text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed"
           >
-            {config.site.heroDescription}
+            通过增强现实技术，让老挝的古老寺庙、壮丽山河与千年文化在您的指尖重获新生。
+            开启一段穿越时空的文化之旅。
           </motion.p>
 
           {/* CTA Buttons */}
@@ -93,12 +93,12 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 1.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <a
-              href="/ar"
+            <button
+              onClick={() => document.querySelector("#ar-experience")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-3.5 bg-gradient-to-r from-[#C8A45C] to-[#D4B06A] text-white font-semibold rounded-full shadow-2xl shadow-[#C8A45C]/30 hover:shadow-[#C8A45C]/50 transition-all duration-300 hover:-translate-y-1 text-base"
             >
               体验AR导览
-            </a>
+            </button>
             <button
               onClick={() => document.querySelector("#destinations")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-3.5 border border-white/30 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300 text-base backdrop-blur-sm"
