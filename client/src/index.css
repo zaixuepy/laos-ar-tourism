@@ -183,3 +183,103 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+/* ===== 生产环境优化样式 ===== */
+
+/* Logo 圆角去白边 */
+.logo-container img {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  width: 48px !important;
+  height: 48px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* AR 相机画面居中 */
+video {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  min-width: 100vw !important;
+  min-height: 100vh !important;
+  object-fit: cover !important;
+  z-index: -1 !important;
+}
+
+/* AI Agent 按钮防遮挡 - 上移 120px */
+.ai-agent-button {
+  position: fixed !important;
+  bottom: 120px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #C8A45C, #D4B06A) !important;
+  box-shadow: 0 4px 12px rgba(200, 164, 92, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  color: white !important;
+  font-size: 24px !important;
+}
+
+.ai-agent-button:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 16px rgba(200, 164, 92, 0.6) !important;
+}
+
+.ai-agent-button:active {
+  transform: scale(0.95) !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .ai-agent-button {
+    bottom: 100px !important;
+    right: 16px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* 防止 iPhone 安全区域遮挡 */
+@supports (padding: max(0px)) {
+  .ai-agent-button {
+    bottom: max(120px, calc(120px + env(safe-area-inset-bottom))) !important;
+    right: max(20px, calc(20px + env(safe-area-inset-right))) !important;
+  }
+}
+
+/* 强制覆盖 MindAR 默认样式 */
+a-scene {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1000 !important;
+}
+
+/* 防止页面滚动 */
+body.ar-active {
+  overflow: hidden !important;
+}
+
+/* 性能优化：图片懒加载 */
+img {
+  loading: lazy;
+  decoding: async;
+}
+
+/* 优化字体加载 */
+@font-face {
+  font-display: swap;
+}
