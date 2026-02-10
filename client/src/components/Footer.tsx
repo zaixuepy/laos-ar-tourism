@@ -70,9 +70,9 @@ export default function Footer() {
             <div>
               <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">联系我们</h4>
               <div className="space-y-2.5 text-sm text-white/50">
-                <p>contact@explorelaos.ar</p>
-                <p>+856 21 XXX XXXX</p>
-                <p>老挝万象市中心</p>
+                <p>2918058304@qq.com</p>
+                <p>+86 134 6784 3123</p>
+                <p>老挝万象市中心/中国武汉中南民族大学</p>
               </div>
             </div>
           </div>

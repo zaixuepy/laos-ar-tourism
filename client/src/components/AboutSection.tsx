@@ -135,19 +135,19 @@ export default function AboutSection() {
               <div className="w-10 h-10 rounded-full bg-[#C8A45C]/10 flex items-center justify-center">
                 <Mail size={18} className="text-[#C8A45C]" />
               </div>
-              <span className="text-sm text-[#6B5B4F]">contact@explorelaos.ar</span>
+              <span className="text-sm text-[#6B5B4F]">2918058304@qq.com</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">
               <div className="w-10 h-10 rounded-full bg-[#C8A45C]/10 flex items-center justify-center">
                 <Phone size={18} className="text-[#C8A45C]" />
               </div>
-              <span className="text-sm text-[#6B5B4F]">+856 21 XXX XXXX</span>
+              <span className="text-sm text-[#6B5B4F]">+86 134 6784 3123</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">
               <div className="w-10 h-10 rounded-full bg-[#C8A45C]/10 flex items-center justify-center">
                 <MapPin size={18} className="text-[#C8A45C]" />
               </div>
-              <span className="text-sm text-[#6B5B4F]">万象市中心</span>
+              <span className="text-sm text-[#6B5B4F]">万象市中心 / 中国武汉中南民族大学</span>
             </div>
           </div>
         </motion.div>
