@@ -63,9 +63,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold text-white mb-4 leading-tight"
+            className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold mb-4 leading-tight"
           >
-            {config.site.heroTitle}
+            <span className="text-[#C8A45C]">探索</span>
+            <span className="text-white">  老挝</span>
           </motion.h1>
 
           <motion.p
