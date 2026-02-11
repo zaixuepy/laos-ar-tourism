@@ -65,7 +65,7 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.8 }}
             className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold mb-4 leading-tight"
           >
-            <span className="text-[#C8A45C]">探索</span>
+            <span className="text-[#E8D5A0]">探索</span>
             <span className="text-white">  老挝</span>
           </motion.h1>
 
