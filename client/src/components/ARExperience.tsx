@@ -4,6 +4,7 @@
  */
 import { motion } from "framer-motion";
 import { Smartphone, Eye, MapPin, History } from "lucide-react";
+import { useLanguage } from "@/contexts/ConfigContext";
 
 const AR_DEMO = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/rubmvkinydjrvzwE.jpg";
 const AR_BANNER = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/vZDCDCZHrSJlwDYD.jpg";
@@ -32,6 +33,39 @@ const features = [
 ];
 
 export default function ARExperience() {
+  const { language } = useLanguage();
+
+  const i18nText = {
+    CN: {
+      coreTitle: 'AR增强现实体验',
+      coreDesc: '将前沿的增强现实技术与老挝丰富的历史文化遗产完美融合，为游客带来前所未有的沉浸式文旅体验',
+      mainTitle: '指向古迹，',
+      mainSubtitle: '重温王朝的辉煌历史',
+      mainDesc: '只需将手机对准老挝的历史古迹，AR技术将即刻为您呈现丰富的历史信息、3D建筑重建和沉浸式的文化故事。',
+      arScanning: 'AR识别中...',
+      stats: [
+        { num: '50+', label: 'AR景点' },
+        { num: '6', label: '语言支持' },
+        { num: '1000+', label: '历史故事' },
+      ],
+    },
+    EN: {
+      coreTitle: 'AR Augmented Reality Experience',
+      coreDesc: 'Perfectly blend cutting-edge augmented reality technology with Laos rich historical and cultural heritage, bringing unprecedented immersive tourism experiences to visitors.',
+      mainTitle: 'Point to Ancient Sites,',
+      mainSubtitle: 'Relive the Glory of Dynasties',
+      mainDesc: 'Simply point your phone at Laos historical sites, and AR technology will instantly present you with rich historical information, 3D architectural reconstructions, and immersive cultural stories.',
+      arScanning: 'AR Scanning...',
+      stats: [
+        { num: '50+', label: 'AR Sites' },
+        { num: '6', label: 'Languages' },
+        { num: '1000+', label: 'Stories' },
+      ],
+    },
+  };
+
+  const content = i18nText[language];
+
   return (
     <section id="ar-experience" className="py-20 lg:py-32 relative overflow-hidden">
       {/* Background */}
@@ -54,15 +88,14 @@ export default function ARExperience() {
           className="text-center mb-16 lg:mb-20"
         >
           <span className="text-[#C8A45C] text-sm tracking-[0.3em] uppercase font-medium">
-            Core Technology
+            {language === 'CN' ? '核心技术' : 'Core Technology'}
           </span>
           <h2 className="font-display text-3xl lg:text-5xl font-bold text-[#3D2B1F] mt-3 mb-4">
-            AR增强现实体验
+            {content.coreTitle}
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#C8A45C] to-transparent mx-auto mb-4" />
           <p className="text-[#6B5B4F] max-w-2xl mx-auto leading-relaxed">
-            将前沿的增强现实技术与老挝丰富的历史文化遗产完美融合，
-            为游客带来前所未有的沉浸式文旅体验
+            {content.coreDesc}
           </p>
         </motion.div>
 
@@ -99,7 +132,7 @@ export default function ARExperience() {
               >
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-medium text-[#3D2B1F]">AR识别中...</span>
+                  <span className="text-xs font-medium text-[#3D2B1F]">{content.arScanning}</span>
                 </div>
               </motion.div>
 
@@ -121,12 +154,11 @@ export default function ARExperience() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h3 className="font-display text-2xl lg:text-3xl font-bold text-[#3D2B1F] mb-3">
-              指向古迹，<br />
-              <span className="text-[#8B2D2D]">重温王朝的辉煌历史</span>
+              {content.mainTitle}<br />
+              <span className="text-[#8B2D2D]">{content.mainSubtitle}</span>
             </h3>
             <p className="text-[#6B5B4F] mb-8 leading-relaxed">
-              只需将手机对准老挝的历史古迹，AR技术将即刻为您呈现丰富的历史信息、
-              3D建筑重建和沉浸式的文化故事。
+              {content.mainDesc}
             </p>
 
             <div className="space-y-5">
@@ -152,11 +184,7 @@ export default function ARExperience() {
 
             {/* Stats */}
             <div className="mt-10 grid grid-cols-3 gap-4">
-              {[
-                { num: "50+", label: "AR景点" },
-                { num: "6", label: "语言支持" },
-                { num: "1000+", label: "历史故事" },
-              ].map((stat) => (
+              {content.stats.map((stat: any) => (
                 <div key={stat.label} className="text-center p-3 rounded-xl bg-[#C8A45C]/5 border border-[#C8A45C]/10">
                   <div className="font-display text-2xl font-bold text-[#C8A45C]">{stat.num}</div>
                   <div className="text-xs text-[#8B7B6F] mt-1">{stat.label}</div>

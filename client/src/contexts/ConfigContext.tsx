@@ -1,5 +1,25 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
+// Internationalization helper
+export const i18n = {
+  CN: {
+    appTitle: '探索老挝 AR',
+    appSubtitle: 'AR奇遇，指尖上的千年文明',
+    language: '中文',
+    switchLanguage: '切换语言',
+    loading: '加载中...',
+    error: '加载失败',
+  },
+  EN: {
+    appTitle: 'Explore Laos AR',
+    appSubtitle: 'AR Adventure, Thousand-Year Civilization at Your Fingertips',
+    language: 'English',
+    switchLanguage: 'Switch Language',
+    loading: 'Loading...',
+    error: 'Failed to load',
+  },
+};
+
 // Config type definitions
 export interface SiteConfig {
   site: {
@@ -105,18 +125,35 @@ interface ConfigContextType {
   config: SiteConfig | null;
   loading: boolean;
   error: string | null;
+  language: 'CN' | 'EN';
+  setLanguage: (lang: 'CN' | 'EN') => void;
 }
 
 const ConfigContext = createContext<ConfigContextType>({
   config: null,
   loading: true,
   error: null,
+  language: 'CN',
+  setLanguage: () => {},
 });
 
 export function ConfigProvider({ children }: { children: ReactNode }) {
   const [config, setConfig] = useState<SiteConfig | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [language, setLanguageState] = useState<'CN' | 'EN'>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('language') as 'CN' | 'EN') || 'CN';
+    }
+    return 'CN';
+  });
+
+  const setLanguage = (lang: 'CN' | 'EN') => {
+    setLanguageState(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+    }
+  };
 
   useEffect(() => {
     fetch("/config.json")
@@ -138,7 +175,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ConfigContext.Provider value={{ config, loading, error }}>
+    <ConfigContext.Provider value={{ config, loading, error, language, setLanguage }}>
       {children}
     </ConfigContext.Provider>
   );
@@ -156,4 +193,10 @@ export function useConfigSafe() {
   return useContext(ConfigContext);
 }
 
+export function useLanguage() {
+  const { language, setLanguage } = useContext(ConfigContext);
+  return { language, setLanguage };
+}
+
+export { ConfigContext };
 export default ConfigContext;

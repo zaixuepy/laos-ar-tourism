@@ -5,11 +5,12 @@
  */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search } from "lucide-react";
-import { useConfig } from "@/contexts/ConfigContext";
+import { Menu, X, Search, Globe } from "lucide-react";
+import { useConfig, useLanguage } from "@/contexts/ConfigContext";
 
 export default function Navbar() {
   const config = useConfig();
+  const { language, setLanguage } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -88,13 +89,43 @@ export default function Navbar() {
             >
               <Search size={18} />
             </button>
+            
+            {/* Language Toggle Button */}
+            <motion.button
+              onClick={() => setLanguage(language === 'CN' ? 'EN' : 'CN')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-3 py-2 rounded-full font-medium text-sm transition-all flex items-center gap-2 ${
+                scrolled
+                  ? "bg-[#C8A45C]/20 text-[#8B2D2D] hover:bg-[#C8A45C]/30"
+                  : "bg-white/10 text-white hover:bg-white/20"
+              }`}
+              title="切换语言 / Switch Language"
+            >
+              <Globe size={16} />
+              <span>{language}</span>
+            </motion.button>
+            
             <a
               href="/ar"
               className="px-5 py-2 bg-gradient-to-r from-[#C8A45C] to-[#D4B06A] text-white text-sm font-medium rounded-full shadow-lg shadow-[#C8A45C]/30 hover:shadow-xl hover:shadow-[#C8A45C]/40 transition-all duration-300 hover:-translate-y-0.5"
             >
-              开始AR之旅
+              {language === 'CN' ? '开始AR之旅' : 'Start AR Tour'}
             </a>
           </div>
+
+          {/* Language Toggle (Mobile) */}
+          <motion.button
+            onClick={() => setLanguage(language === 'CN' ? 'EN' : 'CN')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`lg:hidden p-2 rounded-full transition-all ${
+              scrolled ? "text-[#8B2D2D]" : "text-white"
+            }`}
+            title="切换语言 / Switch Language"
+          >
+            <Globe size={20} />
+          </motion.button>
 
           {/* Mobile Menu Button */}
           <button
@@ -141,7 +172,7 @@ export default function Navbar() {
                 transition={{ delay: 0.3 }}
                 className="mt-6 px-6 py-3 bg-gradient-to-r from-[#C8A45C] to-[#D4B06A] text-white font-medium rounded-full shadow-lg text-center"
               >
-                开始AR之旅
+                {language === 'CN' ? '开始AR之旅' : 'Start AR Tour'}
               </motion.a>
             </div>
           </motion.div>
