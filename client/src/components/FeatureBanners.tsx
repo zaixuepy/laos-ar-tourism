@@ -5,8 +5,34 @@
 import { motion } from "framer-motion";
 import { MapPin, Calendar, ChevronRight, Navigation } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/ConfigContext";
+
+const i18nText = {
+  CN: {
+    guideTitle: "AR导游导览",
+    guideDesc: "智能语音 · 实景导航",
+    guideComingSoon: "功能即将上线",
+    guideDesc2: "AR导游导览功能正在开发中",
+    eventTitle: "活动日历",
+    eventDesc: "节庆活动 · 文化体验",
+    eventComingSoon: "功能即将上线",
+    eventDesc2: "活动日历功能正在开发中",
+  },
+  EN: {
+    guideTitle: "AR Guide Tours",
+    guideDesc: "Smart Voice · Real-time Navigation",
+    guideComingSoon: "Coming Soon",
+    guideDesc2: "AR guide tour feature is under development",
+    eventTitle: "Event Calendar",
+    eventDesc: "Festivals · Cultural Experiences",
+    eventComingSoon: "Coming Soon",
+    eventDesc2: "Event calendar feature is under development",
+  },
+};
 
 export default function FeatureBanners() {
+  const { language } = useLanguage();
+  const content = i18nText[language];
   return (
     <section className="py-6 lg:py-10">
       <div className="container space-y-4">
@@ -16,7 +42,7 @@ export default function FeatureBanners() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          onClick={() => toast("功能即将上线", { description: "AR导游导览功能正在开发中" })}
+          onClick={() => toast(content.guideComingSoon, { description: content.guideDesc2 })}
           className="relative rounded-2xl overflow-hidden cursor-pointer group"
           style={{
             background: "linear-gradient(135deg, #FFF0E0 0%, #FFE4CC 50%, #FFDAB9 100%)",
@@ -29,9 +55,9 @@ export default function FeatureBanners() {
               </div>
               <div>
                 <h3 className="font-display text-lg lg:text-xl font-bold text-[#8B2D2D]">
-                  AR导游导览
+                  {content.guideTitle}
                 </h3>
-                <p className="text-sm text-[#8B6B3D]">智能语音 · 实景导航</p>
+                <p className="text-sm text-[#8B6B3D]">{content.guideDesc}</p>
               </div>
             </div>
             <div className="flex items-center gap-1 text-[#C8A45C]">
@@ -48,7 +74,7 @@ export default function FeatureBanners() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          onClick={() => toast("功能即将上线", { description: "活动日历功能正在开发中" })}
+          onClick={() => toast(content.eventComingSoon, { description: content.eventDesc2 })}
           className="relative rounded-2xl overflow-hidden cursor-pointer group"
           style={{
             background: "linear-gradient(135deg, #FFF8E7 0%, #F5EDD8 50%, #EDE3CC 100%)",
@@ -61,9 +87,9 @@ export default function FeatureBanners() {
               </div>
               <div>
                 <h3 className="font-display text-lg lg:text-xl font-bold text-[#8B2D2D]">
-                  活动日历
+                  {content.eventTitle}
                 </h3>
-                <p className="text-sm text-[#8B6B3D]">节庆活动 · 文化体验</p>
+                <p className="text-sm text-[#8B6B3D]">{content.eventDesc}</p>
               </div>
             </div>
             <div className="flex items-center gap-1 text-[#8B2D2D]">

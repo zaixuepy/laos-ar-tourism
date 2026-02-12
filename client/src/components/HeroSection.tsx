@@ -5,10 +5,32 @@
  */
 import { motion } from "framer-motion";
 import { ChevronDown, Sparkles } from "lucide-react";
-import { useConfig } from "@/contexts/ConfigContext";
+import { useConfig, useLanguage } from "@/contexts/ConfigContext";
 
 export default function HeroSection() {
   const config = useConfig();
+  const { language } = useLanguage();
+
+  const i18nText = {
+    CN: {
+      subtitle: '增强现实文旅体验',
+      title1: '探索',
+      title2: '老挝',
+      cta1: '体验AR导览',
+      cta2: '探索目的地',
+      scrollHint: '向下滚动',
+    },
+    EN: {
+      subtitle: 'Augmented Reality Tourism',
+      title1: 'Explore',
+      title2: 'Laos',
+      cta1: 'Experience AR Tour',
+      cta2: 'Explore Destinations',
+      scrollHint: 'Scroll Down',
+    },
+  };
+
+  const content = i18nText[language];
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -53,7 +75,7 @@ export default function HeroSection() {
           >
             <Sparkles className="text-[#C8A45C]" size={16} />
             <span className="text-[#E8D5A0] text-sm tracking-[0.3em] uppercase font-medium">
-              Augmented Reality Tourism
+              {content.subtitle}
             </span>
             <Sparkles className="text-[#C8A45C]" size={16} />
           </motion.div>
@@ -65,8 +87,8 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.8 }}
             className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold mb-4 leading-tight"
           >
-            <span className="text-[#E8D5A0]">探索</span>
-            <span className="text-white">  老挝</span>
+            <span className="text-[#E8D5A0]">{content.title1}</span>
+            <span className="text-white">  {content.title2}</span>
           </motion.h1>
 
           <motion.p
@@ -98,13 +120,13 @@ export default function HeroSection() {
               href="/ar"
               className="px-8 py-3.5 bg-gradient-to-r from-[#C8A45C] to-[#D4B06A] text-white font-semibold rounded-full shadow-2xl shadow-[#C8A45C]/30 hover:shadow-[#C8A45C]/50 transition-all duration-300 hover:-translate-y-1 text-base"
             >
-              体验AR导览
+              {content.cta1}
             </a>
             <button
               onClick={() => document.querySelector("#destinations")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-3.5 border border-white/30 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300 text-base backdrop-blur-sm"
             >
-              探索目的地
+              {content.cta2}
             </button>
           </motion.div>
         </motion.div>
@@ -117,7 +139,7 @@ export default function HeroSection() {
         transition={{ delay: 2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-white/40 text-xs tracking-widest uppercase">向下滚动</span>
+        <span className="text-white/40 text-xs tracking-widest uppercase">{content.scrollHint}</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}

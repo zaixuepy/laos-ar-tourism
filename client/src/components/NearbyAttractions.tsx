@@ -5,36 +5,87 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/ConfigContext";
 
-const attractions = [
-  {
-    name: "光西瀑布",
-    nameEn: "Kuang Si Falls",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/DfYCXQgErsrcCMOr.jpg",
+const attractionsData = {
+  CN: [
+    {
+      name: "光西羀布",
+      nameEn: "Kuang Si Falls",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/DfYCXQgErsrcCMOr.jpg",
+    },
+    {
+      name: "塔鼾",
+      nameEn: "Pha That Luang",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/hDpJzCISzsmdeTXF.jpg",
+    },
+    {
+      name: "蓝色泳湖",
+      nameEn: "Blue Lagoon",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/QdBLdvTOeggLZazh.jpg",
+    },
+    {
+      name: "湿公河日落",
+      nameEn: "Mekong Sunset",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/WCSCjDdVlQoWgexN.jpg",
+    },
+    {
+      name: "瓦普对",
+      nameEn: "Wat Phou",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/MEDySDruxKMLbwty.jpg",
+    },
+  ],
+  EN: [
+    {
+      name: "Kuang Si Falls",
+      nameEn: "Kuang Si Falls",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/DfYCXQgErsrcCMOr.jpg",
+    },
+    {
+      name: "Pha That Luang",
+      nameEn: "Pha That Luang",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/hDpJzCISzsmdeTXF.jpg",
+    },
+    {
+      name: "Blue Lagoon",
+      nameEn: "Blue Lagoon",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/QdBLdvTOeggLZazh.jpg",
+    },
+    {
+      name: "Mekong Sunset",
+      nameEn: "Mekong Sunset",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/WCSCjDdVlQoWgexN.jpg",
+    },
+    {
+      name: "Wat Phou",
+      nameEn: "Wat Phou",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/MEDySDruxKMLbwty.jpg",
+    },
+  ],
+};
+
+const i18nText = {
+  CN: {
+    title: "周边景区",
+    viewAll: "查看全部 →",
+    comingSoon: "功能即将上线",
+    moreDesc: "更多景区正在开发中",
+    detailsDesc: (name: string) => `${name}详情页正在开发中`,
   },
-  {
-    name: "塔銮",
-    nameEn: "Pha That Luang",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/hDpJzCISzsmdeTXF.jpg",
+  EN: {
+    title: "Nearby Attractions",
+    viewAll: "View All →",
+    comingSoon: "Coming Soon",
+    moreDesc: "More attractions are under development",
+    detailsDesc: (name: string) => `${name} details page is under development`,
   },
-  {
-    name: "蓝色泻湖",
-    nameEn: "Blue Lagoon",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/QdBLdvTOeggLZazh.jpg",
-  },
-  {
-    name: "湄公河日落",
-    nameEn: "Mekong Sunset",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/WCSCjDdVlQoWgexN.jpg",
-  },
-  {
-    name: "瓦普寺",
-    nameEn: "Wat Phou",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/MEDySDruxKMLbwty.jpg",
-  },
-];
+};
 
 export default function NearbyAttractions() {
+  const { language } = useLanguage();
+  const attractions = attractionsData[language];
+  const content = i18nText[language];
+
   return (
     <section className="py-12 lg:py-16">
       <div className="container">
@@ -46,13 +97,13 @@ export default function NearbyAttractions() {
           className="flex items-center justify-between mb-6"
         >
           <h3 className="font-display text-xl lg:text-2xl font-bold text-[#3D2B1F]">
-            周边景区
+            {content.title}
           </h3>
           <button
-            onClick={() => toast("功能即将上线", { description: "更多景区正在开发中" })}
+            onClick={() => toast(content.comingSoon, { description: content.moreDesc })}
             className="text-sm text-[#C8A45C] font-medium hover:text-[#8B6B3D] transition-colors"
           >
-            查看全部 →
+            {content.viewAll}
           </button>
         </motion.div>
 
@@ -65,7 +116,7 @@ export default function NearbyAttractions() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              onClick={() => toast("功能即将上线", { description: `${attr.name}详情页正在开发中` })}
+              onClick={() => toast(content.comingSoon, { description: content.detailsDesc(attr.name) })}
               className="shrink-0 w-40 lg:w-48 group cursor-pointer"
             >
               <div className="relative h-48 lg:h-56 rounded-xl overflow-hidden mb-2">

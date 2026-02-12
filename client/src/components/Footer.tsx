@@ -6,18 +6,63 @@ import { motion } from "framer-motion";
 import { Home, Compass, Map, User } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/ConfigContext";
 
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/rLLGYBbaZSFXGCCN.png";
 
-const bottomTabs = [
-  { icon: Home, label: "首页", active: true },
-  { icon: Compass, label: "服务", active: false },
-  { icon: Map, label: "行程", active: false },
-  { icon: User, label: "我的", active: false },
+const i18nText = {
+  CN: {
+    brandName: "探索老挝",
+    brandDesc: "东南亚首个AR智慧文旅平台，用增强现实技术连接千年文明与现代旅行。",
+    quickLinks: "快速链接",
+    quickLinksItems: ["AR体验", "热门目的地", "行程推荐", "攻略资讯"],
+    services: "服务",
+    servicesItems: ["景区门票", "酒店预订", "导游导览", "文创特产"],
+    contact: "联系我们",
+    copyright: "© 2026 探索老挝 AR. All rights reserved.",
+    privacy: "隐私政策",
+    terms: "服务条款",
+    partnership: "合作洽谈",
+    tabHome: "首页",
+    tabServices: "服务",
+    tabItinerary: "行程",
+    tabProfile: "我的",
+    featureComingSoon: "功能即将上线",
+    personalCenterDesc: "个人中心正在开发中",
+  },
+  EN: {
+    brandName: "Explore Laos",
+    brandDesc: "Southeast Asia's first AR smart tourism platform, connecting millennia of civilization with modern travel through augmented reality.",
+    quickLinks: "Quick Links",
+    quickLinksItems: ["AR Experience", "Popular Destinations", "Itinerary Suggestions", "Travel Guides"],
+    services: "Services",
+    servicesItems: ["Tickets", "Hotel Booking", "Guide Services", "Souvenirs"],
+    contact: "Contact Us",
+    copyright: "© 2026 Explore Laos AR. All rights reserved.",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    partnership: "Partnership",
+    tabHome: "Home",
+    tabServices: "Services",
+    tabItinerary: "Itinerary",
+    tabProfile: "Profile",
+    featureComingSoon: "Coming Soon",
+    personalCenterDesc: "Personal center is in development",
+  },
+};
+
+const getBottomTabs = (language: 'CN' | 'EN') => [
+  { icon: Home, label: i18nText[language].tabHome, active: true },
+  { icon: Compass, label: i18nText[language].tabServices, active: false },
+  { icon: Map, label: i18nText[language].tabItinerary, active: false },
+  { icon: User, label: i18nText[language].tabProfile, active: false },
 ];
 
 export default function Footer() {
+  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
+  const bottomTabs = getBottomTabs(language);
+  const content = i18nText[language];
 
   return (
     <>
@@ -31,22 +76,22 @@ export default function Footer() {
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <img src={LOGO_URL} alt="探索老挝" className="h-10 w-auto" />
+                <img src={LOGO_URL} alt={content.brandName} className="h-10 w-auto" />
                 <div>
-                  <h3 className="font-display text-lg font-bold text-white">探索老挝</h3>
+                  <h3 className="font-display text-lg font-bold text-white">{content.brandName}</h3>
                   <p className="text-[10px] text-[#C8A45C] tracking-[0.2em]">EXPLORE LAOS AR</p>
                 </div>
               </div>
               <p className="text-sm text-white/50 leading-relaxed">
-                东南亚首个AR智慧文旅平台，用增强现实技术连接千年文明与现代旅行。
+                {content.brandDesc}
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">快速链接</h4>
+              <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">{content.quickLinks}</h4>
               <div className="space-y-2.5">
-                {["AR体验", "热门目的地", "行程推荐", "攻略资讯"].map((link) => (
+                {content.quickLinksItems.map((link) => (
                   <a key={link} href="#" className="block text-sm text-white/50 hover:text-[#C8A45C] transition-colors">
                     {link}
                   </a>
@@ -56,9 +101,9 @@ export default function Footer() {
 
             {/* Services */}
             <div>
-              <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">服务</h4>
+              <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">{content.services}</h4>
               <div className="space-y-2.5">
-                {["景区门票", "酒店预订", "导游导览", "文创特产"].map((link) => (
+                {content.servicesItems.map((link) => (
                   <a key={link} href="#" className="block text-sm text-white/50 hover:text-[#C8A45C] transition-colors">
                     {link}
                   </a>
@@ -68,7 +113,7 @@ export default function Footer() {
 
             {/* Contact */}
             <div>
-              <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">联系我们</h4>
+              <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm tracking-wider">{content.contact}</h4>
               <div className="space-y-2.5 text-sm text-white/50">
                 <p>2918058304@qq.com</p>
                 <p>+86 134 6784 3123</p>
@@ -80,12 +125,12 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/30">
-              © 2026 探索老挝 AR. All rights reserved.
+              {content.copyright}
             </p>
             <div className="flex items-center gap-4 text-xs text-white/30">
-              <a href="#" className="hover:text-[#C8A45C] transition-colors">隐私政策</a>
-              <a href="#" className="hover:text-[#C8A45C] transition-colors">服务条款</a>
-              <a href="#" className="hover:text-[#C8A45C] transition-colors">合作洽谈</a>
+              <a href="#" className="hover:text-[#C8A45C] transition-colors">{content.privacy}</a>
+              <a href="#" className="hover:text-[#C8A45C] transition-colors">{content.terms}</a>
+              <a href="#" className="hover:text-[#C8A45C] transition-colors">{content.partnership}</a>
             </div>
           </div>
         </div>
@@ -106,7 +151,7 @@ export default function Footer() {
                 } else if (i === 2) {
                   document.querySelector("#itinerary")?.scrollIntoView({ behavior: "smooth" });
                 } else {
-                  toast("功能即将上线", { description: "个人中心正在开发中" });
+                  toast(content.featureComingSoon, { description: content.personalCenterDesc });
                 }
               }}
               className={`flex flex-col items-center gap-1 px-3 py-1 transition-all ${

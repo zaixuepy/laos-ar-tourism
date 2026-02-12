@@ -29,3 +29,15 @@
 - [x] 优化信息卡样式和动画
 - [x] 编写新的 vitest 测试
 - [x] 保存最终检查点
+
+## 完整国际化改造（所有可见文本全部支持 CN/EN 切换）
+- [x] HeroSection 组件 - 主题、按钮、描述文本
+- [x] ServiceGrid 组件 - 服务条款、标题、描述
+- [x] Footer 组件 - 页脚所有文本、底部导航、联系信息
+- [x] Destinations 组件 - 目的地卡片、标题、描述
+- [x] Itinerary 组件 - 行程卡片、价格、亮点
+- [x] PromoBanner 组件 - 促销横幅所有文本
+- [x] FeatureBanners 组件 - 功能横幅描述
+- [x] NearbyAttractions 组件 - 周边景区标题、按钮
+- [x] GuideSection 组件 - 攻略、资讯、文章信息
+- [x] 所有组件已完全支持中英文实时切换

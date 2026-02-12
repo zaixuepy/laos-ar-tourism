@@ -5,10 +5,32 @@
 import { motion } from "framer-motion";
 import { Ticket, ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/ConfigContext";
 
 const NIGHT_MARKET = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/VtSAovhszLgDNfmL.jpg";
 
+const i18nText = {
+  CN: {
+    badge: "限时特惠",
+    title: "AR门票套餐 · 畅游老挝",
+    description: "购买AR增强导览门票，解锁全部景点AR体验",
+    cta: "立即抢购",
+    comingSoon: "功能即将上线",
+    bookingDesc: "AR门票预订功能正在开发中",
+  },
+  EN: {
+    badge: "Limited Time Offer",
+    title: "AR Ticket Package · Explore Laos",
+    description: "Buy AR augmented tour tickets and unlock all attraction AR experiences",
+    cta: "Buy Now",
+    comingSoon: "Coming Soon",
+    bookingDesc: "AR ticket booking feature is under development",
+  },
+};
+
 export default function PromoBanner() {
+  const { language } = useLanguage();
+  const content = i18nText[language];
   return (
     <section className="py-8 lg:py-12">
       <div className="container">
@@ -17,7 +39,7 @@ export default function PromoBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          onClick={() => toast("功能即将上线", { description: "AR门票预订功能正在开发中" })}
+          onClick={() => toast(content.comingSoon, { description: content.bookingDesc })}
           className="relative rounded-2xl overflow-hidden cursor-pointer group"
         >
           {/* Background */}
@@ -40,20 +62,20 @@ export default function PromoBanner() {
                 <div className="flex items-center gap-2 mb-1">
                   <Sparkles size={14} className="text-[#E8D5A0]" />
                   <span className="text-[#E8D5A0] text-xs tracking-wider uppercase font-medium">
-                    限时特惠
+                    {content.badge}
                   </span>
                 </div>
                 <h3 className="font-display text-lg lg:text-2xl font-bold text-white">
-                  AR门票套餐 · 畅游老挝
+                  {content.title}
                 </h3>
                 <p className="text-white/70 text-sm mt-1 hidden sm:block">
-                  购买AR增强导览门票，解锁全部景点AR体验
+                  {content.description}
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-white font-medium shrink-0">
-              <span className="hidden sm:inline text-sm">立即抢购</span>
+              <span className="hidden sm:inline text-sm">{content.cta}</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>

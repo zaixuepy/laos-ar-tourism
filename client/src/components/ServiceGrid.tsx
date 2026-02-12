@@ -4,19 +4,48 @@
  */
 import { motion } from "framer-motion";
 import { Camera, Utensils, Landmark, Hotel, Ticket, Music, Compass, ShoppingBag } from "lucide-react";
+import { useLanguage } from "@/contexts/ConfigContext";
 
-const services = [
-  { icon: Camera, label: "AR景点", desc: "增强现实导览", color: "#C8A45C" },
-  { icon: Utensils, label: "老挝美食", desc: "地道风味推荐", color: "#8B2D2D" },
-  { icon: Landmark, label: "文化遗产", desc: "世界遗产探索", color: "#2E6B8A" },
-  { icon: Hotel, label: "酒店住宿", desc: "精选住宿体验", color: "#C8A45C" },
-  { icon: Ticket, label: "景区门票", desc: "便捷购票服务", color: "#8B2D2D" },
-  { icon: Music, label: "特色演出", desc: "传统文化表演", color: "#2E6B8A" },
-  { icon: Compass, label: "导游导览", desc: "专业向导服务", color: "#C8A45C" },
-  { icon: ShoppingBag, label: "文创特产", desc: "手工艺品精选", color: "#8B2D2D" },
-];
+const serviceData = {
+  CN: [
+    { icon: Camera, label: "AR景点", desc: "增强现实导览", color: "#C8A45C" },
+    { icon: Utensils, label: "老挝美食", desc: "地道风味推荐", color: "#8B2D2D" },
+    { icon: Landmark, label: "文化遗产", desc: "世界遗产探索", color: "#2E6B8A" },
+    { icon: Hotel, label: "酒店住宿", desc: "精选住宿体验", color: "#C8A45C" },
+    { icon: Ticket, label: "景区门票", desc: "便捷购票服务", color: "#8B2D2D" },
+    { icon: Music, label: "特色演出", desc: "传统文化表演", color: "#2E6B8A" },
+    { icon: Compass, label: "导游导览", desc: "专业向导服务", color: "#C8A45C" },
+    { icon: ShoppingBag, label: "文创特产", desc: "手工艺品精选", color: "#8B2D2D" },
+  ],
+  EN: [
+    { icon: Camera, label: "AR Sites", desc: "Augmented Reality Tours", color: "#C8A45C" },
+    { icon: Utensils, label: "Laos Cuisine", desc: "Authentic Food Recommendations", color: "#8B2D2D" },
+    { icon: Landmark, label: "Heritage", desc: "World Heritage Exploration", color: "#2E6B8A" },
+    { icon: Hotel, label: "Accommodation", desc: "Premium Hotel Experiences", color: "#C8A45C" },
+    { icon: Ticket, label: "Tickets", desc: "Convenient Booking Service", color: "#8B2D2D" },
+    { icon: Music, label: "Shows", desc: "Traditional Cultural Performances", color: "#2E6B8A" },
+    { icon: Compass, label: "Guides", desc: "Professional Guide Services", color: "#C8A45C" },
+    { icon: ShoppingBag, label: "Souvenirs", desc: "Handcraft Selections", color: "#8B2D2D" },
+  ],
+};
+
+const i18nText = {
+  CN: {
+    servicesLabel: "Our Services",
+    title: "一站式文旅服务",
+    description: "今AR智慧导览到地道美食推荐，为您打造全方位的老挝旅行体验",
+  },
+  EN: {
+    servicesLabel: "Our Services",
+    title: "All-in-One Tourism Services",
+    description: "From AR smart tours to authentic food recommendations, we create a comprehensive Laos travel experience for you",
+  },
+};
 
 export default function ServiceGrid() {
+  const { language } = useLanguage();
+  const services = serviceData[language];
+  const content = i18nText[language];
   return (
     <section id="services" className="py-20 lg:py-28 relative">
       {/* Subtle pattern overlay */}
@@ -32,14 +61,14 @@ export default function ServiceGrid() {
           className="text-center mb-16"
         >
           <span className="text-[#C8A45C] text-sm tracking-[0.3em] uppercase font-medium">
-            Our Services
+            {content.servicesLabel}
           </span>
           <h2 className="font-display text-3xl lg:text-5xl font-bold text-[#3D2B1F] mt-3 mb-4">
-            一站式文旅服务
+            {content.title}
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#C8A45C] to-transparent mx-auto mb-4" />
           <p className="text-[#6B5B4F] max-w-lg mx-auto leading-relaxed">
-            从AR智慧导览到地道美食推荐，为您打造全方位的老挝旅行体验
+            {content.description}
           </p>
         </motion.div>
 

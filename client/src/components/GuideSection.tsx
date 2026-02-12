@@ -6,51 +6,112 @@ import { motion } from "framer-motion";
 import { BookOpen, Calendar, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/ConfigContext";
 
 const MEKONG_SUNSET = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/CDzLlITMRwccsdvv.jpg";
 const BLUE_LAGOON = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/QdBLdvTOeggLZazh.jpg";
 const FOOD_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/byxfDYIQecTxylVk.jpg";
 const MONKS_IMG2 = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/bcwzsxKplxSXscRF.jpg";
 
-const tabs = ["攻略", "资讯"];
+const guidesData = {
+  CN: [
+    {
+      title: "琅勃拉邦三日完美攻略",
+      desc: "从清晨布施到夜市美食，手把手教你玩转这座世界遗产古城",
+      image: MONKS_IMG2,
+      date: "2026-01-15",
+      category: "攻略",
+      readTime: "8分钟",
+    },
+    {
+      title: "老挝美食地图：不可错过的十大佳肴",
+      desc: "从Laap到糯米饭，探索老挝最地道的味觉体验",
+      image: FOOD_IMG,
+      date: "2026-01-20",
+      category: "攻略",
+      readTime: "6分钟",
+    },
+    {
+      title: "万荣蓝色泻湖探险指南",
+      desc: "如何选择最适合你的蓝色泻湖，以及周边隐藏的宝藏景点",
+      image: BLUE_LAGOON,
+      date: "2026-01-25",
+      category: "攻略",
+      readTime: "5分钟",
+    },
+    {
+      title: "湄公河日落：最佳观赏地点推荐",
+      desc: "在老挝的哪些地方可以看到最美的湄公河日落",
+      image: MEKONG_SUNSET,
+      date: "2026-02-01",
+      category: "资讯",
+      readTime: "4分钟",
+    },
+  ],
+  EN: [
+    {
+      title: "Perfect 3-Day Luang Prabang Guide",
+      desc: "From morning alms-giving to night market food, learn how to explore this UNESCO World Heritage city",
+      image: MONKS_IMG2,
+      date: "2026-01-15",
+      category: "Guides",
+      readTime: "8 min",
+    },
+    {
+      title: "Laos Food Map: 10 Must-Try Dishes",
+      desc: "From Laap to sticky rice, explore the most authentic flavors of Laos",
+      image: FOOD_IMG,
+      date: "2026-01-20",
+      category: "Guides",
+      readTime: "6 min",
+    },
+    {
+      title: "Vang Vieng Blue Lagoon Adventure Guide",
+      desc: "How to choose the best blue lagoon for you and hidden gems nearby",
+      image: BLUE_LAGOON,
+      date: "2026-01-25",
+      category: "Guides",
+      readTime: "5 min",
+    },
+    {
+      title: "Mekong Sunset: Best Viewing Spots",
+      desc: "Where to watch the most beautiful Mekong River sunsets in Laos",
+      image: MEKONG_SUNSET,
+      date: "2026-02-01",
+      category: "News",
+      readTime: "4 min",
+    },
+  ],
+};
 
-const guides = [
-  {
-    title: "琅勃拉邦三日完美攻略",
-    desc: "从清晨布施到夜市美食，手把手教你玩转这座世界遗产古城",
-    image: MONKS_IMG2,
-    date: "2026-01-15",
-    category: "攻略",
-    readTime: "8分钟",
+const i18nText = {
+  CN: {
+    sectionLabel: "Travel Guides",
+    title: "攻略与资讯",
+    tabGuides: "攻略",
+    tabNews: "资讯",
+    readMore: "阅读全文",
+    comingSoon: "功能即将上线",
+    articleDesc: "文章详情页正在开发中",
   },
-  {
-    title: "老挝美食地图：不可错过的十大佳肴",
-    desc: "从Laap到糯米饭，探索老挝最地道的味觉体验",
-    image: FOOD_IMG,
-    date: "2026-01-20",
-    category: "攻略",
-    readTime: "6分钟",
+  EN: {
+    sectionLabel: "Travel Guides",
+    title: "Guides & News",
+    tabGuides: "Guides",
+    tabNews: "News",
+    readMore: "Read More",
+    comingSoon: "Coming Soon",
+    articleDesc: "Article details page is under development",
   },
-  {
-    title: "万荣蓝色泻湖探险指南",
-    desc: "如何选择最适合你的蓝色泻湖，以及周边隐藏的宝藏景点",
-    image: BLUE_LAGOON,
-    date: "2026-01-25",
-    category: "攻略",
-    readTime: "5分钟",
-  },
-  {
-    title: "湄公河日落：最佳观赏地点推荐",
-    desc: "在老挝的哪些地方可以看到最美的湄公河日落",
-    image: MEKONG_SUNSET,
-    date: "2026-02-01",
-    category: "资讯",
-    readTime: "4分钟",
-  },
-];
+};
 
 export default function GuideSection() {
-  const [activeTab, setActiveTab] = useState("攻略");
+  const { language } = useLanguage();
+  const guides = guidesData[language];
+  const content = i18nText[language];
+  
+  const tabLabels = language === 'CN' ? ["攻略", "资讯"] : ["Guides", "News"];
+  const [activeTab, setActiveTab] = useState(tabLabels[0]);
   const filtered = guides.filter((g) => g.category === activeTab);
 
   return (
@@ -65,17 +126,17 @@ export default function GuideSection() {
           className="text-center mb-12"
         >
           <span className="text-[#C8A45C] text-sm tracking-[0.3em] uppercase font-medium">
-            Travel Guides
+            {content.sectionLabel}
           </span>
           <h2 className="font-display text-3xl lg:text-5xl font-bold text-[#3D2B1F] mt-3 mb-4">
-            攻略与资讯
+            {content.title}
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#C8A45C] to-transparent mx-auto" />
         </motion.div>
 
         {/* Tabs */}
         <div className="flex justify-center gap-1 mb-10">
-          {tabs.map((tab) => (
+          {tabLabels.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -99,7 +160,7 @@ export default function GuideSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              onClick={() => toast("功能即将上线", { description: "文章详情页正在开发中" })}
+              onClick={() => toast(content.comingSoon, { description: content.articleDesc })}
               className="group bg-white rounded-2xl overflow-hidden shadow-md shadow-black/5 hover:shadow-xl hover:shadow-[#C8A45C]/10 transition-all duration-500 cursor-pointer"
             >
               <div className="relative h-44 overflow-hidden">
@@ -126,7 +187,7 @@ export default function GuideSection() {
                   {guide.desc}
                 </p>
                 <div className="mt-3 flex items-center gap-1 text-[#C8A45C] text-xs font-medium group-hover:gap-2 transition-all">
-                  阅读全文 <ArrowRight size={12} />
+                  {content.readMore} <ArrowRight size={12} />
                 </div>
               </div>
             </motion.div>

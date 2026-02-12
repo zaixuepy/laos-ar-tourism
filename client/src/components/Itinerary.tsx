@@ -5,57 +5,127 @@
 import { motion } from "framer-motion";
 import { Clock, MapPin, Camera, Utensils, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/ConfigContext";
 
 const MONKS_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PiHeFAaxulrdkNXW.jpg";
 const NIGHT_MARKET_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/VtSAovhszLgDNfmL.jpg";
 const KUANGSI_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/fthjqzBkwpYZrsNk.jpg";
 
-const itineraries = [
-  {
-    title: "七日世界遗产深度游",
-    subtitle: "琅勃拉邦 → 万象 → 占巴塞",
-    duration: "7天6晚",
-    price: "¥4,980起",
-    highlights: [
-      "琅勃拉邦清晨布施体验",
-      "塔銮AR历史重现",
-      "瓦普寺高棉文明探秘",
-      "湄公河日落游船",
-    ],
-    image: MONKS_IMG,
-    tag: "最受欢迎",
+const itinerariesData = {
+  CN: [
+    {
+      title: "七日世界遗产深度游",
+      subtitle: "琅勃拉邦 → 万象 → 占巴塞",
+      duration: "7天6晚",
+      price: "¥4,980起",
+      highlights: [
+        "琅勃拉邦清晨布施体验",
+        "塔銮AR历史重现",
+        "瓦普寺高棉文明探秘",
+        "湄公河日落游船",
+      ],
+      image: MONKS_IMG,
+      tag: "最受欢迎",
+    },
+    {
+      title: "三日万象休闲之旅",
+      subtitle: "万象市区深度体验",
+      duration: "3天2晚",
+      price: "¥1,980起",
+      highlights: [
+        "塔銮+凯旋门AR导览",
+        "老挝国家博物馆",
+        "万象夜市美食探索",
+        "湄公河畔日落漫步",
+      ],
+      image: NIGHT_MARKET_IMG,
+      tag: "短途精选",
+    },
+    {
+      title: "五日自然探险之旅",
+      subtitle: "万荣 → 琅勃拉邦",
+      duration: "5天4晚",
+      price: "¥3,580起",
+      highlights: [
+        "万荣蓝色泻湖探险",
+        "热气球俯瞰喀斯特地貌",
+        "光西瀑布丛林徒步",
+        "传统手工艺体验",
+      ],
+      image: KUANGSI_IMG,
+      tag: "户外探险",
+    },
+  ],
+  EN: [
+    {
+      title: "7-Day World Heritage Deep Dive",
+      subtitle: "Luang Prabang → Vientiane → Champasak",
+      duration: "7 days 6 nights",
+      price: "From $698",
+      highlights: [
+        "Luang Prabang morning alms-giving experience",
+        "Pha That Luang AR historical recreation",
+        "Wat Phu Khmer civilization exploration",
+        "Mekong River sunset cruise",
+      ],
+      image: MONKS_IMG,
+      tag: "Most Popular",
+    },
+    {
+      title: "3-Day Vientiane Leisure Trip",
+      subtitle: "Vientiane city deep experience",
+      duration: "3 days 2 nights",
+      price: "From $278",
+      highlights: [
+        "Pha That Luang + Patuxai AR tour",
+        "Laos National Museum",
+        "Vientiane night market food exploration",
+        "Mekong riverside sunset walk",
+      ],
+      image: NIGHT_MARKET_IMG,
+      tag: "Short Trip",
+    },
+    {
+      title: "5-Day Nature Adventure",
+      subtitle: "Vang Vieng → Luang Prabang",
+      duration: "5 days 4 nights",
+      price: "From $498",
+      highlights: [
+        "Vang Vieng blue lagoon adventure",
+        "Hot air balloon over karst landscape",
+        "Kuang Si waterfall jungle trekking",
+        "Traditional handicraft experience",
+      ],
+      image: KUANGSI_IMG,
+      tag: "Outdoor Adventure",
+    },
+  ],
+};
+
+const i18nText = {
+  CN: {
+    sectionLabel: "Recommended Itineraries",
+    title: "精选行程推荐",
+    description: "由资深旅行专家精心策划，每条路线均配备AR增强现实导览",
+    viewDetails: "查看详情",
+    comingSoon: "功能即将上线",
+    bookingDesc: "行程预订功能正在开发中",
   },
-  {
-    title: "三日万象休闲之旅",
-    subtitle: "万象市区深度体验",
-    duration: "3天2晚",
-    price: "¥1,980起",
-    highlights: [
-      "塔銮+凯旋门AR导览",
-      "老挝国家博物馆",
-      "万象夜市美食探索",
-      "湄公河畔日落漫步",
-    ],
-    image: NIGHT_MARKET_IMG,
-    tag: "短途精选",
+  EN: {
+    sectionLabel: "Recommended Itineraries",
+    title: "Recommended Itineraries",
+    description: "Carefully curated by experienced travel experts, each route is equipped with AR augmented reality tours",
+    viewDetails: "View Details",
+    comingSoon: "Coming Soon",
+    bookingDesc: "Itinerary booking feature is under development",
   },
-  {
-    title: "五日自然探险之旅",
-    subtitle: "万荣 → 琅勃拉邦",
-    duration: "5天4晚",
-    price: "¥3,580起",
-    highlights: [
-      "万荣蓝色泻湖探险",
-      "热气球俯瞰喀斯特地貌",
-      "光西瀑布丛林徒步",
-      "传统手工艺体验",
-    ],
-    image: KUANGSI_IMG,
-    tag: "户外探险",
-  },
-];
+};
 
 export default function Itinerary() {
+  const { language } = useLanguage();
+  const itineraries = itinerariesData[language];
+  const content = i18nText[language];
+
   return (
     <section id="itinerary" className="py-20 lg:py-28 relative">
       <div className="absolute inset-0 opacity-[0.02] bg-pattern" />
@@ -70,14 +140,14 @@ export default function Itinerary() {
           className="text-center mb-16"
         >
           <span className="text-[#C8A45C] text-sm tracking-[0.3em] uppercase font-medium">
-            Recommended Itineraries
+            {content.sectionLabel}
           </span>
           <h2 className="font-display text-3xl lg:text-5xl font-bold text-[#3D2B1F] mt-3 mb-4">
-            精选行程推荐
+            {content.title}
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#C8A45C] to-transparent mx-auto mb-4" />
           <p className="text-[#6B5B4F] max-w-lg mx-auto leading-relaxed">
-            由资深旅行专家精心策划，每条路线均配备AR增强现实导览
+            {content.description}
           </p>
         </motion.div>
 
@@ -140,10 +210,10 @@ export default function Itinerary() {
 
                 {/* CTA */}
                 <button
-                  onClick={() => toast("功能即将上线", { description: "行程预订功能正在开发中" })}
+                  onClick={() => toast(content.comingSoon, { description: content.bookingDesc })}
                   className="w-full py-2.5 bg-gradient-to-r from-[#C8A45C]/10 to-[#C8A45C]/5 border border-[#C8A45C]/20 rounded-xl text-[#8B6B3D] font-medium text-sm hover:from-[#C8A45C]/20 hover:to-[#C8A45C]/10 transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  查看详情 <ArrowRight size={14} />
+                  {content.viewDetails} <ArrowRight size={14} />
                 </button>
               </div>
             </motion.div>
