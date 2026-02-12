@@ -8,6 +8,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, Globe } from "lucide-react";
 import { useConfig, useLanguage } from "@/contexts/ConfigContext";
 
+// Navigation labels mapping
+const NAV_LABELS: Record<string, { CN: string; EN: string }> = {
+  '#hero': { CN: '首页', EN: 'Home' },
+  '#ar-experience': { CN: 'AR体验', EN: 'AR Experience' },
+  '#destinations': { CN: '热门目的地', EN: 'Destinations' },
+  '#services': { CN: '服务', EN: 'Services' },
+  '#itinerary': { CN: '行程推荐', EN: 'Itineraries' },
+  '#about': { CN: '关于我们', EN: 'About Us' },
+};
+
 export default function Navbar() {
   const config = useConfig();
   const { language, setLanguage } = useLanguage();
@@ -24,6 +34,10 @@ export default function Navbar() {
     setMobileOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const getNavLabel = (href: string) => {
+    return NAV_LABELS[href]?.[language] || href;
   };
 
   return (
@@ -51,10 +65,10 @@ export default function Navbar() {
             <img src={config.site.logo} alt={config.site.title} className="h-10 lg:h-12 w-auto" />
             <div className="hidden sm:block">
               <h1 className="font-display text-lg lg:text-xl font-bold text-[#8B2D2D] leading-tight">
-                {config.site.title}
+                {language === 'CN' ? config.site.title : config.site.titleEn}
               </h1>
               <p className="text-[10px] lg:text-xs text-[#C8A45C] tracking-[0.2em] font-medium">
-                {config.site.titleEn}
+                {language === 'CN' ? config.site.titleEn : config.site.title}
               </p>
             </div>
           </a>
@@ -75,7 +89,7 @@ export default function Navbar() {
                     : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
               >
-                {item.label}
+                {getNavLabel(item.href)}
               </a>
             ))}
           </div>
@@ -162,7 +176,7 @@ export default function Navbar() {
                   transition={{ delay: i * 0.05 }}
                   className="px-4 py-4 text-lg font-display font-semibold text-[#3D2B1F] border-b border-[#C8A45C]/20 hover:text-[#8B2D2D] hover:pl-6 transition-all"
                 >
-                  {item.label}
+                  {getNavLabel(item.href)}
                 </motion.a>
               ))}
               <motion.a
