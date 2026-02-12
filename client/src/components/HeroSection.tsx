@@ -97,7 +97,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="font-display text-xl sm:text-2xl lg:text-3xl text-[#E8D5A0] font-light mb-2"
           >
-            {config.site.heroSubtitle}
+            {language === 'CN' ? config.site.heroSubtitle : 'AR Adventure, Millennia of Civilization at Your Fingertips'}
           </motion.p>
 
           <motion.p
@@ -106,7 +106,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-white/60 text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed"
           >
-            {config.site.heroDescription}
+            {language === 'CN' ? config.site.heroDescription : 'Through augmented reality technology, bring Laos\' ancient temples, magnificent landscapes, and millennia of culture back to life at your fingertips. Embark on a journey through time and culture.'}
           </motion.p>
 
           {/* CTA Buttons */}

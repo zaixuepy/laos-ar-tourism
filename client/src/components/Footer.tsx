@@ -12,14 +12,15 @@ const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/
 
 const i18nText = {
   CN: {
-    brandName: "探索老挝",
+    brandName: "探索老挧",
     brandDesc: "东南亚首个AR智慧文旅平台，用增强现实技术连接千年文明与现代旅行。",
     quickLinks: "快速链接",
     quickLinksItems: ["AR体验", "热门目的地", "行程推荐", "攻略资讯"],
     services: "服务",
     servicesItems: ["景区门票", "酒店预订", "导游导览", "文创特产"],
     contact: "联系我们",
-    copyright: "© 2026 探索老挝 AR. All rights reserved.",
+    address: "老挧万象市中心 / 中国武汉中南民族大学",
+    copyright: "© 2026 探索老挧 AR. All rights reserved.",
     privacy: "隐私政策",
     terms: "服务条款",
     partnership: "合作洽谈",
@@ -38,6 +39,7 @@ const i18nText = {
     services: "Services",
     servicesItems: ["Tickets", "Hotel Booking", "Guide Services", "Souvenirs"],
     contact: "Contact Us",
+    address: "Vientiane City Center, Laos / Wuhan, China",
     copyright: "© 2026 Explore Laos AR. All rights reserved.",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
@@ -117,7 +119,7 @@ export default function Footer() {
               <div className="space-y-2.5 text-sm text-white/50">
                 <p>2918058304@qq.com</p>
                 <p>+86 134 6784 3123</p>
-                <p>老挝万象市中心/中国武汉中南民族大学</p>
+                <p>{content.address}</p>
               </div>
             </div>
           </div>

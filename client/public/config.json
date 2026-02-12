@@ -3,8 +3,11 @@
     "title": "探索老挝 AR",
     "titleEn": "Explore Laos AR",
     "heroTitle": "探索  老挝",
+    "heroTitleEn": "Explore  Laos",
     "heroSubtitle": "AR奇遇，指尖上的千年文明",
+    "heroSubtitleEn": "AR Adventure, Millennia of Civilization at Your Fingertips",
     "heroDescription": "通过增强现实技术，让老挝的古老寺庙、壮丽山河与千年文化在您的指尖重获新生。开启一段穿越时空的文化之旅。",
+    "heroDescriptionEn": "Through augmented reality technology, bring Laos' ancient temples, magnificent landscapes, and millennia of culture back to life at your fingertips. Embark on a journey through time and culture.",
     "heroBackground": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/YvcelLrmwrObMSiX.jpg",
     "logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/rLLGYBbaZSFXGCCN.png",
     "colors": {
@@ -16,27 +19,28 @@
     }
   },
   "contact": {
-    "phone": "+86 134 678 43123",
-    "email": "a2918058304@gmail.com",
-    "address": "中国武汉中南民族大学 / 老挝万象"
+    "phone": "+86 134 6784 3123",
+    "email": "2918058304@qq.com",
+    "address": "老挝万象市中心 / 中国武汉中南民族大学",
+    "addressEn": "Vientiane City Center, Laos / Wuhan, China"
   },
   "nav": [
-    { "label": "首页", "href": "#hero" },
-    { "label": "AR体验", "href": "#ar-experience" },
-    { "label": "热门目的地", "href": "#destinations" },
-    { "label": "服务", "href": "#services" },
-    { "label": "行程推荐", "href": "#itinerary" },
-    { "label": "关于我们", "href": "#about" }
+    { "label": "首页", "labelEn": "Home", "href": "#hero" },
+    { "label": "AR体验", "labelEn": "AR Experience", "href": "#ar-experience" },
+    { "label": "热门目的地", "labelEn": "Destinations", "href": "#destinations" },
+    { "label": "服务", "labelEn": "Services", "href": "#services" },
+    { "label": "行程推荐", "labelEn": "Itineraries", "href": "#itinerary" },
+    { "label": "关于我们", "labelEn": "About Us", "href": "#about" }
   ],
   "services": [
-    { "icon": "Camera", "label": "AR景点", "desc": "增强现实导览", "color": "#C8A45C" },
-    { "icon": "Utensils", "label": "老挝美食", "desc": "地道风味推荐", "color": "#8B2D2D" },
-    { "icon": "Landmark", "label": "文化遗产", "desc": "世界遗产探索", "color": "#2E6B8A" },
-    { "icon": "Hotel", "label": "酒店住宿", "desc": "精选住宿体验", "color": "#C8A45C" },
-    { "icon": "Ticket", "label": "景区门票", "desc": "便捷购票服务", "color": "#8B2D2D" },
-    { "icon": "Music", "label": "特色演出", "desc": "传统文化表演", "color": "#2E6B8A" },
-    { "icon": "Compass", "label": "导游导览", "desc": "专业向导服务", "color": "#C8A45C" },
-    { "icon": "ShoppingBag", "label": "文创特产", "desc": "手工艺品精选", "color": "#8B2D2D" }
+    { "icon": "Camera", "label": "AR景点", "labelEn": "AR Sites", "desc": "增强现实导览", "descEn": "Augmented Reality Tours", "color": "#C8A45C" },
+    { "icon": "Utensils", "label": "老挝美食", "labelEn": "Lao Cuisine", "desc": "地道风味推荐", "descEn": "Authentic Local Flavors", "color": "#8B2D2D" },
+    { "icon": "Landmark", "label": "文化遗产", "labelEn": "Heritage Sites", "desc": "世界遗产探索", "descEn": "World Heritage Exploration", "color": "#2E6B8A" },
+    { "icon": "Hotel", "label": "酒店住宿", "labelEn": "Hotels", "desc": "精选住宿体验", "descEn": "Premium Accommodations", "color": "#C8A45C" },
+    { "icon": "Ticket", "label": "景区门票", "labelEn": "Tickets", "desc": "便捷购票服务", "descEn": "Easy Ticket Booking", "color": "#8B2D2D" },
+    { "icon": "Music", "label": "特色演出", "labelEn": "Shows", "desc": "传统文化表演", "descEn": "Traditional Performances", "color": "#2E6B8A" },
+    { "icon": "Compass", "label": "导游导览", "labelEn": "Guides", "desc": "专业向导服务", "descEn": "Professional Guide Services", "color": "#C8A45C" },
+    { "icon": "ShoppingBag", "label": "文创特产", "labelEn": "Souvenirs", "desc": "手工艺品精选", "descEn": "Handcrafted Souvenirs", "color": "#8B2D2D" }
   ],
   "destinations": [
     {
@@ -44,36 +48,44 @@
       "nameEn": "Luang Prabang",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg",
       "desc": "世界文化遗产古城，清晨布施、金碧辉煌的寺庙群与湄公河交汇的宁静之地",
+      "descEn": "UNESCO World Heritage ancient city, a serene place where morning alms-giving, magnificent temples, and the Mekong River converge",
       "rating": 4.9,
       "arCount": 18,
-      "tags": ["世界遗产", "寺庙", "布施"]
+      "tags": ["世界遗产", "寺庙", "布施"],
+      "tagsEn": ["World Heritage", "Temples", "Alms-giving"]
     },
     {
       "name": "万象",
       "nameEn": "Vientiane",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/grNBdGEdwJjSRGvH.jpg",
       "desc": "老挝首都，塔銮金塔、凯旋门与法式殖民建筑交织的东南亚明珠",
+      "descEn": "Capital of Laos, a Southeast Asian gem where the golden Tat Luang, Patuxai Gate, and French colonial architecture intertwine",
       "rating": 4.7,
       "arCount": 15,
-      "tags": ["首都", "塔銮", "凯旋门"]
+      "tags": ["首都", "塔銮", "凯旋门"],
+      "tagsEn": ["Capital", "Tat Luang", "Patuxai"]
     },
     {
       "name": "万荣",
       "nameEn": "Vang Vieng",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg",
       "desc": "喀斯特地貌与南松河的完美邂逅，热气球、蓝色泻湖与户外探险天堂",
+      "descEn": "Perfect blend of karst landscape and Nam Song River, featuring hot air balloons, blue lagoons, and outdoor adventure paradise",
       "rating": 4.8,
       "arCount": 12,
-      "tags": ["自然风光", "探险", "蓝色泻湖"]
+      "tags": ["自然风光", "探险", "蓝色泻湖"],
+      "tagsEn": ["Nature", "Adventure", "Blue Lagoon"]
     },
     {
       "name": "占巴塞",
       "nameEn": "Champasak",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/sxjOBJmxfQhCogms.jpg",
       "desc": "瓦普寺遗址所在地，高棉文明的北方前哨，千年石刻诉说着古老的故事",
+      "descEn": "Home to Wat Phu temple ruins, the northern outpost of Khmer civilization, where ancient stone carvings tell thousand-year-old stories",
       "rating": 4.6,
       "arCount": 10,
-      "tags": ["世界遗产", "考古", "高棉文化"]
+      "tags": ["世界遗产", "考古", "高棉文化"],
+      "tagsEn": ["World Heritage", "Archaeology", "Khmer Culture"]
     }
   ],
   "nearbyAttractions": [
@@ -96,61 +108,81 @@
   "itineraries": [
     {
       "title": "经典文化之旅",
+      "titleEn": "Classic Culture Tour",
       "days": 5,
       "price": "¥3,999",
+      "priceEn": "$599",
       "highlights": ["琅勃拉邦古城", "清晨布施", "光西瀑布", "湄公河游船"],
+      "highlightsEn": ["Luang Prabang Ancient City", "Morning Alms-giving", "Kuang Si Falls", "Mekong River Cruise"],
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg"
     },
     {
       "title": "探险自然之旅",
+      "titleEn": "Adventure Nature Tour",
       "days": 7,
       "price": "¥5,999",
+      "priceEn": "$899",
       "highlights": ["万荣热气球", "蓝色泻湖", "溶洞探险", "南松河漂流"],
+      "highlightsEn": ["Vang Vieng Hot Air Balloon", "Blue Lagoon", "Cave Exploration", "Nam Song River Rafting"],
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg"
     },
     {
       "title": "世界遗产之旅",
+      "titleEn": "World Heritage Tour",
       "days": 10,
       "price": "¥8,999",
+      "priceEn": "$1,299",
       "highlights": ["琅勃拉邦", "瓦普寺", "石缸平原", "四千岛"],
+      "highlightsEn": ["Luang Prabang", "Wat Phu", "Plain of Jars", "Four Thousand Islands"],
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/sxjOBJmxfQhCogms.jpg"
     }
   ],
   "guides": [
     {
       "title": "老挝签证攻略：2026最新政策",
+      "titleEn": "Laos Visa Guide: 2026 Latest Policy",
       "category": "攻略",
+      "categoryEn": "Guide",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/grNBdGEdwJjSRGvH.jpg",
       "date": "2026-01-15"
     },
     {
       "title": "琅勃拉邦三日深度游路线",
+      "titleEn": "Luang Prabang 3-Day Deep Dive Itinerary",
       "category": "攻略",
+      "categoryEn": "Guide",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/PvIGCKYsNHlkixJd.jpg",
       "date": "2026-01-10"
     },
     {
       "title": "中老铁路开通：全新旅行方式",
+      "titleEn": "China-Laos Railway Opens: New Way to Travel",
       "category": "资讯",
+      "categoryEn": "News",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/cBvjPzMTsMVJaGnS.jpg",
       "date": "2026-01-08"
     },
     {
       "title": "老挝传统节日：泼水节全攻略",
+      "titleEn": "Lao Traditional Festival: Complete Songkran Guide",
       "category": "资讯",
+      "categoryEn": "News",
       "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/sxjOBJmxfQhCogms.jpg",
       "date": "2026-01-05"
     }
   ],
   "about": {
     "vision": "「探索老挝AR」致力于将前沿的增强现实技术与老挝深厚的历史文化底蕴相结合，打造东南亚首个AR智慧文旅平台。我们相信，科技不仅能让旅行更便捷，更能让文化遗产以全新的方式触达每一位旅行者。",
+    "visionEn": "\"Explore Laos AR\" is committed to combining cutting-edge augmented reality technology with Laos' rich historical and cultural heritage to create Southeast Asia's first AR-powered smart tourism platform. We believe that technology not only makes travel more convenient but also enables cultural heritage to reach every traveler in new ways.",
     "mission": "随着中老铁路的开通和东盟数字经济的蓬勃发展，老挝正迎来文旅产业的黄金时代。我们的使命是成为连接中国游客与老挝文化的数字桥梁，让每一次旅行都成为一次深度的文化对话。",
+    "missionEn": "With the opening of the China-Laos Railway and the flourishing of ASEAN's digital economy, Laos is entering a golden age for cultural tourism. Our mission is to become a digital bridge connecting Chinese tourists with Laos' culture, making every trip a deep cultural dialogue.",
     "stats": [
-      { "num": "50+", "label": "AR景点覆盖" },
-      { "num": "100K+", "label": "预期用户" },
-      { "num": "3", "label": "世界遗产" }
+      { "num": "50+", "label": "AR景点覆盖", "labelEn": "AR Sites" },
+      { "num": "100K+", "label": "预期用户", "labelEn": "Expected Users" },
+      { "num": "3", "label": "世界遗产", "labelEn": "World Heritage" }
     ],
     "partners": ["老挝旅游部", "UNESCO亚太区", "中老铁路文旅", "东盟数字经济", "华为云AR", "腾讯文旅"],
+    "partnersEn": ["Laos Tourism Ministry", "UNESCO Asia-Pacific", "China-Laos Railway Tourism", "ASEAN Digital Economy", "Huawei Cloud AR", "Tencent Tourism"],
     "backgroundImage": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/qhrOTqcTdxKKusPW.jpg"
   },
   "ar": {
@@ -159,6 +191,7 @@
       {
         "id": "tower",
         "name": "塔銮金塔",
+        "nameEn": "Tat Luang Golden Stupa",
         "targetIndex": 0,
         "path": "./assets/models/tower.glb",
         "scale": "0.5 0.5 0.5",
@@ -170,13 +203,21 @@
   "aiAgent": {
     "enabled": true,
     "welcomeMessage": "萨拜迪！我是您的老挝 AI 导游，关于塔銮或凯旋门有什么想问的吗？",
+    "welcomeMessageEn": "Sabaidee! I'm your Laos AI guide. What would you like to know about Tat Luang or Patuxai Gate?",
     "avatar": "./assets/images/ai-avatar.png",
     "name": "老挝小助手",
+    "nameEn": "Laos Assistant",
     "quickReplies": [
       "琅勃拉邦有什么好玩的？",
       "老挝签证怎么办？",
       "推荐一条5天行程",
       "AR功能怎么用？"
+    ],
+    "quickRepliesEn": [
+      "What's fun to do in Luang Prabang?",
+      "How do I get a Laos visa?",
+      "Recommend a 5-day itinerary",
+      "How do I use AR features?"
     ],
     "fallbackResponses": [
       "这是一个很好的问题！关于老挝旅行，我建议您先从琅勃拉邦开始，那里有世界遗产级别的古城和壮丽的寺庙群。",
@@ -184,32 +225,47 @@
       "关于AR导览功能，您只需点击首页的「体验AR导览」按钮，对准识别图即可看到3D模型在现实中呈现。",
       "老挝的美食非常值得尝试！推荐您试试老挝烤鱼、糯米饭配木瓜沙拉，还有老挝啤酒。",
       "中老铁路已经开通，从昆明到万象只需要约10小时，非常方便！沿途风景也很美。"
+    ],
+    "fallbackResponsesEn": [
+      "That's a great question! For Laos travel, I recommend starting with Luang Prabang, which has UNESCO World Heritage ancient city and magnificent temples.",
+      "Sabaidee! Laos is a fascinating country. You can experience morning alms-giving, explore Kuang Si Falls, or take a Mekong River cruise.",
+      "For AR tour features, simply click the \"Experience AR Tour\" button on the homepage and point at the target image to see 3D models in reality.",
+      "Lao cuisine is definitely worth trying! I recommend trying Lao grilled fish, sticky rice with papaya salad, and Lao beer.",
+      "The China-Laos Railway is now open, taking only about 10 hours from Kunming to Vientiane, very convenient! The scenery along the way is beautiful too."
     ]
   },
   "promo": {
     "title": "新春特惠",
+    "titleEn": "Spring Special Offer",
     "subtitle": "AR文旅体验套餐限时优惠",
+    "subtitleEn": "Limited-time discount on AR tourism experience packages",
     "cta": "立即了解",
+    "ctaEn": "Learn More",
     "backgroundGradient": "from-[#C8A45C] via-[#D4B06A] to-[#C8A45C]"
   },
   "featureBanners": {
     "guide": {
       "title": "AR导游导览",
-      "subtitle": "智能语音讲解"
+      "titleEn": "AR Guide Tours",
+      "subtitle": "智能语音讲解",
+      "subtitleEn": "Intelligent voice narration"
     },
     "calendar": {
       "title": "活动日历",
-      "subtitle": "精彩活动不错过"
+      "titleEn": "Event Calendar",
+      "subtitle": "精彩活动不错过",
+      "subtitleEn": "Never miss exciting events"
     }
   },
   "footer": {
     "copyright": "© 2026 探索老挝AR. All rights reserved.",
+    "copyrightEn": "© 2026 Explore Laos AR. All rights reserved.",
     "icp": "",
     "links": [
-      { "label": "关于我们", "href": "#about" },
-      { "label": "联系方式", "href": "#about" },
-      { "label": "隐私政策", "href": "#" },
-      { "label": "使用条款", "href": "#" }
+      { "label": "关于我们", "labelEn": "About Us", "href": "#about" },
+      { "label": "联系方式", "labelEn": "Contact", "href": "#about" },
+      { "label": "隐私政策", "labelEn": "Privacy Policy", "href": "#" },
+      { "label": "使用条款", "labelEn": "Terms of Use", "href": "#" }
     ]
   }
 }
