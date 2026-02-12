@@ -2,7 +2,7 @@
  * Design: 「皇家金殿」东南亚宫廷美学
  * 首页：纵向叙事卷轴布局，配置驱动架构
  */
-import { useConfigSafe } from "@/contexts/ConfigContext";
+import { useConfigSafe, useLanguage } from "@/contexts/ConfigContext";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServiceGrid from "@/components/ServiceGrid";
@@ -19,13 +19,21 @@ import AIAgent from "@/components/AIAgent";
 
 export default function Home() {
   const { config, loading, error } = useConfigSafe();
+  const { language } = useLanguage();
+
+  const loadingText = language === 'CN' ? '正在加载配置...' : 'Loading configuration...';
+  const errorTitle = language === 'CN' ? '配置加载失败' : 'Configuration Failed';
+  const errorDesc = language === 'CN' 
+    ? '无法加载 config.json 文件。请检查文件是否存在于 public/ 目录下。'
+    : 'Failed to load config.json file. Please check if the file exists in the public/ directory.';
+  const reloadBtn = language === 'CN' ? '重新加载' : 'Reload';
 
   if (loading) {
     return (
       <div className="min-h-screen bg-[#FFF8E7] flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 rounded-full border-4 border-[#C8A45C]/20 border-t-[#C8A45C] animate-spin mx-auto mb-4" />
-          <p className="text-[#6B5B4F]">正在加载配置...</p>
+          <p className="text-[#6B5B4F]">{loadingText}</p>
         </div>
       </div>
     );
@@ -39,16 +47,16 @@ export default function Home() {
             <span className="text-[#8B2D2D] text-2xl">!</span>
           </div>
           <h2 className="font-display text-xl text-[#3D2B1F] font-bold mb-2">
-            配置加载失败
+            {errorTitle}
           </h2>
           <p className="text-[#6B5B4F] text-sm mb-4">
-            无法加载 config.json 文件。请检查文件是否存在于 public/ 目录下。
+            {errorDesc}
           </p>
           <button
             onClick={() => window.location.reload()}
             className="px-6 py-2 bg-[#C8A45C] text-white rounded-full text-sm hover:bg-[#B89448] transition-colors"
           >
-            重试
+            {reloadBtn}
           </button>
         </div>
       </div>

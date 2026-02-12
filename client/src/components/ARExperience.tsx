@@ -9,31 +9,56 @@ import { useLanguage } from "@/contexts/ConfigContext";
 const AR_DEMO = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/rubmvkinydjrvzwE.jpg";
 const AR_BANNER = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/vZDCDCZHrSJlwDYD.jpg";
 
-const features = [
-  {
-    icon: Eye,
-    title: "实景AR识别",
-    desc: "对准古迹，即刻呈现历史信息与3D重建画面",
-  },
-  {
-    icon: MapPin,
-    title: "智能导览",
-    desc: "基于GPS定位的AR兴趣点推送，不错过任何精彩",
-  },
-  {
-    icon: History,
-    title: "时空穿越",
-    desc: "AR还原千年前的王朝盛景，沉浸式历史体验",
-  },
-  {
-    icon: Smartphone,
-    title: "多语言支持",
-    desc: "支持中、英、老、泰等多语言AR解说",
-  },
-];
+const featuresData = {
+  CN: [
+    {
+      icon: Eye,
+      title: "实景 AR识别",
+      desc: "对准古迹，即刃呈现历史信息与3D重建画面",
+    },
+    {
+      icon: MapPin,
+      title: "智能导览",
+      desc: "基于GPS定位的AR兴趣点推送，不错过任何精彩",
+    },
+    {
+      icon: History,
+      title: "时空穿越",
+      desc: "AR还原万年前的王朝盛景，沉浸式历史体验",
+    },
+    {
+      icon: Smartphone,
+      title: "多语言支持",
+      desc: "支持中、英、老、泰等多语言AR解说",
+    },
+  ],
+  EN: [
+    {
+      icon: Eye,
+      title: "Real-World AR Recognition",
+      desc: "Point at ancient sites and instantly see historical information and 3D reconstructions",
+    },
+    {
+      icon: MapPin,
+      title: "Smart Navigation",
+      desc: "GPS-based AR points of interest push, never miss any highlights",
+    },
+    {
+      icon: History,
+      title: "Time Travel",
+      desc: "AR recreates ancient dynasty splendor, immersive historical experience",
+    },
+    {
+      icon: Smartphone,
+      title: "Multi-Language Support",
+      desc: "Support Chinese, English, Lao, Thai and more languages for AR narration",
+    },
+  ],
+};
 
 export default function ARExperience() {
   const { language } = useLanguage();
+  const features = featuresData[language];
 
   const i18nText = {
     CN: {

@@ -4,32 +4,80 @@
  */
 import { motion } from "framer-motion";
 import { Globe, Users, Award, Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/ConfigContext";
 
 const LUANG_AERIAL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663339511512/qhrOTqcTdxKKusPW.jpg";
 
-const stats = [
-  { icon: Globe, num: "50+", label: "AR景点覆盖" },
-  { icon: Users, num: "100K+", label: "预期用户" },
-  { icon: Award, num: "3", label: "世界遗产" },
-];
+const statsData = {
+  CN: [
+    { icon: Globe, num: "50+", label: "AR景点覆盖" },
+    { icon: Users, num: "100K+", label: "预期用户" },
+    { icon: Award, num: "3", label: "世界遗产" },
+  ],
+  EN: [
+    { icon: Globe, num: "50+", label: "AR Sites" },
+    { icon: Users, num: "100K+", label: "Expected Users" },
+    { icon: Award, num: "3", label: "World Heritage" },
+  ],
+};
 
-const partners = [
-  "老挝旅游部",
-  "UNESCO亚太区",
-  "中老铁路文旅",
-  "东盟数字经济",
-  "华为云AR",
-  "腾讯文旅",
-];
+const partnersData = {
+  CN: [
+    "老挝旅游部",
+    "UNESCO亚太区",
+    "中老铁路文旅",
+    "东盟数字经济",
+    "华为云AR",
+    "腾讯文旅",
+  ],
+  EN: [
+    "Laos Tourism Ministry",
+    "UNESCO Asia-Pacific",
+    "China-Laos Railway Tourism",
+    "ASEAN Digital Economy",
+    "Huawei Cloud AR",
+    "Tencent Tourism",
+  ],
+};
+
+const i18nText = {
+  CN: {
+    sectionLabel: "About Us",
+    title: "关于我们",
+    visionTitle: "用科技",
+    visionHighlight: "重新定义",
+    visionSubtitle: "文旅体验",
+    visionDesc1: "「探索老挝AR」致力于将前沿的增强现实技术与老挝深厚的历史文化底蕴相结合，打造东南亚首个AR智慧文旅平台。我们相信，科技不仅能让旅行更便捷，更能让文化遗产以全新的方式触达每一位旅行者。",
+    visionDesc2: "随着中老铁路的开通和东盟数字经济的蓬勃发展，老挝正迎来文旅产业的黄金时代。我们的使命是成为连接中国游客与老挝文化的数字桥梁，让每一次旅行都成为一次深度的文化对话。",
+    partnersTitle: "战略合作伙伴",
+    contactTitle: "投资者联系方式",
+  },
+  EN: {
+    sectionLabel: "About Us",
+    title: "About Us",
+    visionTitle: "Redefining",
+    visionHighlight: "Cultural Tourism",
+    visionSubtitle: "with Technology",
+    visionDesc1: "\"Explore Laos AR\" is committed to combining cutting-edge augmented reality technology with Laos' rich historical and cultural heritage to create Southeast Asia's first AR-powered smart tourism platform. We believe that technology not only makes travel more convenient but also enables cultural heritage to reach every traveler in new ways.",
+    visionDesc2: "With the opening of the China-Laos Railway and the flourishing of ASEAN's digital economy, Laos is entering a golden age for cultural tourism. Our mission is to become a digital bridge connecting Chinese tourists with Laos' culture, making every trip a deep cultural dialogue.",
+    partnersTitle: "Strategic Partners",
+    contactTitle: "Investor Contact",
+  },
+};
 
 export default function AboutSection() {
+  const { language } = useLanguage();
+  const stats = statsData[language];
+  const partners = partnersData[language];
+  const content = i18nText[language];
+
   return (
     <section id="about" className="py-20 lg:py-28 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img
           src={LUANG_AERIAL}
-          alt="琅勃拉邦鸟瞰"
+          alt={language === 'CN' ? "琅勃拉邦鸟瞰" : "Luang Prabang Aerial View"}
           className="w-full h-full object-cover opacity-8"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8E7] via-[#FFF8E7]/97 to-[#FFF8E7]" />
@@ -45,10 +93,10 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <span className="text-[#C8A45C] text-sm tracking-[0.3em] uppercase font-medium">
-            About Us
+            {content.sectionLabel}
           </span>
           <h2 className="font-display text-3xl lg:text-5xl font-bold text-[#3D2B1F] mt-3 mb-4">
-            关于我们
+            {content.title}
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#C8A45C] to-transparent mx-auto" />
         </motion.div>
@@ -62,17 +110,15 @@ export default function AboutSection() {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <h3 className="font-display text-2xl lg:text-3xl font-bold text-[#3D2B1F] mb-6">
-            用科技<span className="text-[#8B2D2D]">重新定义</span>文旅体验
+            {content.visionTitle}
+            <span className="text-[#8B2D2D]">{content.visionHighlight}</span>
+            {content.visionSubtitle}
           </h3>
           <p className="text-[#6B5B4F] leading-relaxed text-base lg:text-lg mb-4">
-            「探索老挝AR」致力于将前沿的增强现实技术与老挝深厚的历史文化底蕴相结合，
-            打造东南亚首个AR智慧文旅平台。我们相信，科技不仅能让旅行更便捷，
-            更能让文化遗产以全新的方式触达每一位旅行者。
+            {content.visionDesc1}
           </p>
           <p className="text-[#6B5B4F] leading-relaxed text-base lg:text-lg">
-            随着中老铁路的开通和东盟数字经济的蓬勃发展，
-            老挝正迎来文旅产业的黄金时代。我们的使命是成为连接中国游客与老挝文化的数字桥梁，
-            让每一次旅行都成为一次深度的文化对话。
+            {content.visionDesc2}
           </p>
         </motion.div>
 
@@ -105,7 +151,7 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <h4 className="font-display text-lg font-semibold text-[#3D2B1F] mb-6">
-            战略合作伙伴
+            {content.partnersTitle}
           </h4>
           <div className="flex flex-wrap justify-center gap-3 lg:gap-4 max-w-3xl mx-auto">
             {partners.map((partner) => (
@@ -128,7 +174,7 @@ export default function AboutSection() {
           className="max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-[#C8A45C]/15 shadow-lg shadow-[#C8A45C]/5"
         >
           <h4 className="font-display text-xl font-bold text-[#3D2B1F] text-center mb-6">
-            投资者联系方式
+            {content.contactTitle}
           </h4>
           <div className="grid sm:grid-cols-3 gap-6">
             <div className="flex flex-col items-center gap-2 text-center">
@@ -147,7 +193,11 @@ export default function AboutSection() {
               <div className="w-10 h-10 rounded-full bg-[#C8A45C]/10 flex items-center justify-center">
                 <MapPin size={18} className="text-[#C8A45C]" />
               </div>
-              <span className="text-sm text-[#6B5B4F]">万象市中心 / 中国武汉中南民族大学</span>
+              <span className="text-sm text-[#6B5B4F]">
+                {language === 'CN' 
+                  ? "万象市中心 / 中国武汉中南民族大学" 
+                  : "Vientiane City Center / Wuhan, China"}
+              </span>
             </div>
           </div>
         </motion.div>
